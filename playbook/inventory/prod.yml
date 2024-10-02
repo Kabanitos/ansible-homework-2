@@ -1,0 +1,12 @@
+---
+clickhouse:
+  hosts:
+    clickhouse-01:
+      ansible_host: <IP_here>
+      ansible_user: admin1
+
+vector:
+  hosts:
+    vector-01:
+      ansible_host:
+      ansible_user: admin1
