@@ -2,11 +2,11 @@
 clickhouse:
   hosts:
     clickhouse-01:
-      ansible_host: <IP_here>
+      ansible_host: 89.169.146.208
       ansible_user: admin1
 
 vector:
   hosts:
-    vector-01:
-      ansible_host:
+    vector:
+      ansible_host: 89.169.157.106
       ansible_user: admin1

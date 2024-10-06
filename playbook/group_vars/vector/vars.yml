@@ -1,0 +1,12 @@
+vector_version: "0.41.1"
+
+vector_configuration:
+  sources:
+    my_source_id:
+      type: file
+
+  sinks:
+    my_sink_id:
+      type: clickhouse
+      table: logs
+      database: "logs"
