@@ -8,17 +8,23 @@
         name: clickhouse-server
         state: restarted
   tasks:
-    - block:
-        - name: Get clickhouse distrib
-          ansible.builtin.get_url:
-            url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.noarch.rpm"
-            dest: "./{{ item }}-{{ clickhouse_version }}.rpm"
-          with_items: "{{ clickhouse_packages }}"
-      rescue:
-        - name: Get clickhouse distrib
-          ansible.builtin.get_url:
-            url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
-            dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
+    # - block:
+    #     - name: Get clickhouse distrib
+    #       ansible.builtin.get_url:
+    #         url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.noarch.rpm"
+    #         dest: "./{{ item }}-{{ clickhouse_version }}.rpm"
+    #       with_items: "{{ clickhouse_packages }}"
+    #   rescue:
+    #     - name: Get clickhouse distrib
+    #       ansible.builtin.get_url:
+    #         url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
+    #         dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
+    - name: Get clickhouse distrib
+      ansible.builtin.get_url:
+        url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.x86_64.rpm"
+        dest: "./{{ item }}-{{ clickhouse_version }}.rpm"
+      with_items: "{{ clickhouse_packages }}"
+    
     - name: Install clickhouse packages
       become: true
       ansible.builtin.yum:
