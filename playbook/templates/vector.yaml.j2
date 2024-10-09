@@ -19,6 +19,6 @@ sinks:
     type:  {{ vector_configuration.sinks.my_sink_id.type }} 
     inputs:
       - remap_logs
-    endpoint: "http://{{hostvars[ 'clickhouse-01'].ansible_host }}:8123"
+    endpoint: "http://{{ hostvars['clickhouse-01']['ansible_default_ipv4']['address'] }}:8123"
     database: {{ vector_configuration.sinks.my_sink_id.database }}
     table: {{ vector_configuration.sinks.my_sink_id.table }}

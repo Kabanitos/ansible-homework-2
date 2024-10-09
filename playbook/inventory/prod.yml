@@ -2,11 +2,11 @@
 clickhouse:
   hosts:
     clickhouse-01:
-      ansible_host: 84.252.131.131
+      ansible_host: 51.250.72.251
       ansible_user: admin1
 
 vector:
   hosts:
     vector:
-      ansible_host: 89.169.154.24
+      ansible_host: 84.201.128.193
       ansible_user: admin1
