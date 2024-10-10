@@ -76,7 +76,7 @@
 Пример:
 
 ```
-    vector:
+   vector:
       hosts:
         vector:
           ansible_host: 10.1.137.5
